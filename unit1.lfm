@@ -1,0 +1,393 @@
+object MainForm: TMainForm
+  Left = 545
+  Height = 445
+  Top = 248
+  Width = 525
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Passwordgenerator'
+  ClientHeight = 445
+  ClientWidth = 525
+  OnCreate = FormCreate
+  LCLVersion = '1.6.4.0'
+  object lsb_allePW: TListBox
+    Left = 16
+    Height = 168
+    Hint = 'Ein Posswort anklicken, um es auszuwählen.'
+    Top = 64
+    Width = 352
+    ExtendedSelect = False
+    ItemHeight = 0
+    OnClick = lsb_allePWClick
+    OnMouseUp = lsb_allePWMouseUp
+    ParentShowHint = False
+    PopupMenu = PopupMenuAllPasswords
+    ShowHint = True
+    TabOrder = 0
+  end
+  object ed_lange: TEdit
+    Left = 64
+    Height = 23
+    Hint = 'The Length of the Passwords to be generated'
+    Top = 20
+    Width = 40
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    Text = '20'
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Hint = 'The Length of the Passwords to be generated'
+    Top = 24
+    Width = 40
+    Caption = 'Length:'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 48
+    Width = 75
+    Caption = 'All Passwords:'
+    ParentColor = False
+  end
+  object btn_loschen: TButton
+    Left = 376
+    Height = 25
+    Hint = 'Deletes all Entries in the "All Passwords" List'#13#10'The selected Password field is not affected by this'
+    Top = 254
+    Width = 90
+    Caption = 'Clear List'
+    OnClick = btn_loschenClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+  end
+  object Label4: TLabel
+    Left = 120
+    Height = 15
+    Top = 24
+    Width = 49
+    Caption = '(max. 45)'
+    ParentColor = False
+  end
+  object lsb__auswahl: TEdit
+    Left = 16
+    Height = 23
+    Hint = 'Shows a password selected from the list above'
+    Top = 256
+    Width = 352
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 15
+    Top = 240
+    Width = 100
+    Caption = 'Selected Password:'
+    ParentColor = False
+  end
+  object btn_generieren: TButton
+    Left = 376
+    Height = 25
+    Hint = 'Generates the given number of Passwords with the choosen length'#13#10'Containing: A-Z a-z 0-9 ! " # $ % & '' ( ) * + , - . / < > = ? @ [ ] \ _ { } | ~'
+    Top = 80
+    Width = 135
+    Caption = 'Generate'
+    OnClick = btn_generierenClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object btn_alphanum: TButton
+    Left = 376
+    Height = 25
+    Hint = 'Generates the given number of Passwords with the choosen length'#13#10'Containg: A-Z a-z 0-9'
+    Top = 120
+    Width = 135
+    Caption = 'Generate Alphanum.'
+    OnClick = btn_alphanumClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+  end
+  object cb_mal: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 296
+    Width = 80
+    Caption = ' * (Asterisk)'
+    Checked = True
+    State = cbChecked
+    TabOrder = 6
+  end
+  object cb_plus: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 320
+    Width = 31
+    Caption = ' +'
+    Checked = True
+    State = cbChecked
+    TabOrder = 7
+  end
+  object cb_minus: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 344
+    Width = 72
+    Caption = ' - (Minus)'
+    Checked = True
+    State = cbChecked
+    TabOrder = 8
+  end
+  object cb_slash: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 368
+    Width = 28
+    Caption = ' /'
+    Checked = True
+    State = cbChecked
+    TabOrder = 9
+  end
+  object cb_backslash: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 389
+    Width = 28
+    Caption = ' \'
+    Checked = True
+    State = cbChecked
+    TabOrder = 10
+  end
+  object cb_raute: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 416
+    Width = 30
+    Caption = ' #'
+    Checked = True
+    State = cbChecked
+    TabOrder = 11
+  end
+  object cb_ausrufe: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 416
+    Width = 26
+    Caption = ' !'
+    Checked = True
+    State = cbChecked
+    TabOrder = 12
+  end
+  object cb_dollar: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 344
+    Width = 29
+    Caption = ' $'
+    Checked = True
+    State = cbChecked
+    TabOrder = 13
+  end
+  object cb_prozent: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 368
+    Width = 33
+    Caption = ' %'
+    Checked = True
+    State = cbChecked
+    TabOrder = 14
+  end
+  object cb_gleich: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 389
+    Width = 31
+    Caption = ' ='
+    Checked = True
+    State = cbChecked
+    TabOrder = 15
+  end
+  object cb_frage: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 296
+    Width = 28
+    Caption = ' ?'
+    Checked = True
+    State = cbChecked
+    TabOrder = 16
+  end
+  object cb_kleiner: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 320
+    Width = 31
+    Caption = ' <'
+    Checked = True
+    State = cbChecked
+    TabOrder = 17
+  end
+  object cb_grosser: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 344
+    Width = 31
+    Caption = ' >'
+    Checked = True
+    State = cbChecked
+    TabOrder = 18
+  end
+  object cb_komma: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 416
+    Width = 80
+    Caption = ' , (Comma)'
+    TabOrder = 19
+  end
+  object cb_doppelpkt: TCheckBox
+    Left = 336
+    Height = 19
+    Top = 344
+    Width = 69
+    Caption = ' : (Colon)'
+    TabOrder = 20
+  end
+  object cb_semikolon: TCheckBox
+    Left = 336
+    Height = 19
+    Top = 296
+    Width = 93
+    Caption = ' ; (Semicolon)'
+    TabOrder = 21
+  end
+  object cb_pkt: TCheckBox
+    Left = 336
+    Height = 19
+    Top = 320
+    Width = 71
+    Caption = ' . (Period)'
+    TabOrder = 22
+  end
+  object cb_unterstrich: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 368
+    Width = 99
+    Caption = ' _ (Underscore)'
+    Checked = True
+    State = cbChecked
+    TabOrder = 23
+  end
+  object cb_tilde: TCheckBox
+    Left = 336
+    Height = 19
+    Top = 368
+    Width = 67
+    Caption = ' ~ (Tilde)'
+    TabOrder = 24
+  end
+  object btn_alphanum_cb: TButton
+    Left = 376
+    Height = 25
+    Hint = 'Generates the given number of Passwords with the choosen length.'#13#10'Containg: A-Z a-z 0-9 and all selected special characters'
+    Top = 192
+    Width = 135
+    Caption = 'Generate Custom'
+    OnClick = btn_alphanum_cbClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 25
+  end
+  object Label6: TLabel
+    Left = 232
+    Height = 15
+    Hint = 'The Amount of Passwords to be generated'
+    Top = 24
+    Width = 36
+    Caption = 'Count:'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object ed_anzahl: TEdit
+    Left = 288
+    Height = 23
+    Hint = 'The Amount of Passwords to be generated'
+    Top = 20
+    Width = 40
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 26
+    Text = '5'
+  end
+  object cb_erweitert: TCheckBox
+    Left = 376
+    Height = 19
+    Hint = 'Show Options for Custom Passwords'
+    Top = 160
+    Width = 62
+    Caption = 'Custom'
+    OnChange = cb_erweitertChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 27
+  end
+  object cb_klammer_auf: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 296
+    Width = 24
+    Caption = '('
+    Checked = True
+    State = cbChecked
+    TabOrder = 28
+  end
+  object cb_klammer_zu: TCheckBox
+    Left = 120
+    Height = 19
+    Top = 320
+    Width = 24
+    Caption = ')'
+    Checked = True
+    State = cbChecked
+    TabOrder = 29
+  end
+  object cb_strich: TCheckBox
+    Left = 224
+    Height = 19
+    Top = 392
+    Width = 23
+    Caption = '|'
+    TabOrder = 30
+  end
+  object cb_at: TCheckBox
+    Left = 336
+    Height = 19
+    Top = 392
+    Width = 31
+    Caption = '@'
+    Checked = True
+    State = cbChecked
+    TabOrder = 31
+  end
+  object PopupMenuAllPasswords: TPopupMenu
+    left = 384
+    top = 16
+    object MenuItemCopyFromAllPasswords: TMenuItem
+      Caption = 'Copy to Clipboard'
+      OnClick = MenuItemCopyFromAllPasswordsClick
+    end
+  end
+end
