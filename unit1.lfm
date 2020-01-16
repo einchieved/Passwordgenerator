@@ -13,7 +13,7 @@ object MainForm: TMainForm
   object lsb_allePW: TListBox
     Left = 16
     Height = 168
-    Hint = 'Ein Posswort anklicken, um es auszuwählen.'
+    Hint = 'Click on a password to select it'
     Top = 64
     Width = 352
     ExtendedSelect = False
