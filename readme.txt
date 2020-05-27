@@ -2,7 +2,7 @@ Passwordgenerator - (minimal) Rework
 
 Project created with Lazarus-IDE
 
-I did this some years ago and wasn't well programmed, it's still not, but it works.
+I wrote this some years ago and it wasn't well programmed, it's still not, but it works.
 Only the Passwordgenerator.exe file is reqired for running.
 
 Types of Passwords:
